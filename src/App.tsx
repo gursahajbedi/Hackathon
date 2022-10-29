@@ -4,7 +4,7 @@ import love from "./components/assets/icons/love.svg"
 import manbinary from "./components/assets/icons/manbinary.svg"
 import aichip from "./components/assets/icons/aichip.svg"
 import carddata from "./components/carddata"
-import {Routes,BrowserRouter,Route} from "react-router-dom"
+import {Routes,Route,HashRouter} from "react-router-dom"
 import Event from "./components/event/main"
 import Create from "./components/create/main"
 import {nanoid} from  "nanoid"
@@ -104,7 +104,7 @@ function App() {
   })
 
   return (
-    <BrowserRouter basename='/Hackathon'>
+    <HashRouter>
     <Nav/>
     <Routes>
       <Route path='/' element={
@@ -141,7 +141,7 @@ function App() {
       {page}
       <Route path='/create' element={<Create change={createchange} submit={createsubmit}/>}/>
     </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
