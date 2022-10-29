@@ -104,7 +104,7 @@ function App() {
   })
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/Hackathon'>
     <Nav/>
     <Routes>
       <Route path='/' element={
