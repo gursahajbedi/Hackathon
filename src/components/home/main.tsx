@@ -20,7 +20,7 @@ import {Link} from "react-router-dom"
 
 export function Nav(){
     return(
-        <Link to="/Hackathon/">
+        <Link to="/">
         <div className="container-fluid d-flex flex-row py-2 ps-5" style={{backgroundColor:"white"}}>
             <img src={logo_img} id="logo"></img>
         </div>
@@ -35,7 +35,7 @@ export function Banner(){
                 <div className="container">
                     <p className="display-6 fw-bold ps-5 py-1 mb-4" id="inner_head">Accelerate Innovation <br/> with Global AI Challenges</p>
                     <p className="fw-light fs-5 ms-5 lh-base" id="inner_text">AI Challenges at DPhi simulate real-world problems. It is a great place to put your AI/Data Science skills to test on diverse datasets allowing yout to foster learning through competitions.</p>
-                    <Link to="/Hackathon/create">
+                    <Link to="/create">
                     <button className="btn py-1 btn-light text-primary ms-5 mt-4 rounded rounded-4">
                         <h1 className="fs-5 pt-2 fw-bold" id="btn_create">Create Challenge</h1>
                     </button>

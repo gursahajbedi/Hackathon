@@ -32,7 +32,7 @@ export default function Event(prop:any){
                     <div className="float-start p-2 px-3 fw-bold fs-5" style={{borderBottom:"6px solid green"}}>Overview</div>
                     <div className="float-end d-flex">
                         <div className="btn btn-success me-3" style={{width:"7rem"}}>Edit</div>
-                        <Link to="/Hackathon/"><div className="btn btn-outline-danger" onClick={()=>prop.Delete(prop.id)} style={{width:"7rem"}}>Delete</div></Link>
+                        <Link to="/"><div className="btn btn-outline-danger" onClick={()=>prop.Delete(prop.id)} style={{width:"7rem"}}>Delete</div></Link>
                     </div>
                 </div>
             </div>

@@ -83,7 +83,7 @@ function App() {
   
   const cards = data.map(item=>{
     let vari:any=(item.title).split(" ");
-    vari='/Hackathon/'+ vari.join("")
+    vari='/'+ vari.join("")
 
     return(
       <Cards img={item.img} title={item.title} link={vari} start={item.start} end={item.end}/>
@@ -92,7 +92,7 @@ function App() {
 
   const page = data.map((item)=>{
     let vari:any=(item.title).split(" ");
-    vari="/Hackathon/"+vari.join("")
+    vari=vari.join("")
 
     return(
       <Route path={vari} element={
@@ -107,7 +107,7 @@ function App() {
     <BrowserRouter>
     <Nav/>
     <Routes>
-      <Route path='/Hackathon/' element={
+      <Route path='/' element={
            <div className='d-flex flex-column'>
            <Banner/>
            <div className='container-fluid' style={{backgroundColor:"#002b3a"}}>
@@ -139,7 +139,7 @@ function App() {
          </div>
       }/>
       {page}
-      <Route path='/Hackathon/create' element={<Create change={createchange} submit={createsubmit}/>}/>
+      <Route path='/create' element={<Create change={createchange} submit={createsubmit}/>}/>
     </Routes>
     </BrowserRouter>
   );
