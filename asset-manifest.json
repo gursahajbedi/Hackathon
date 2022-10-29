@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Hackathon/static/css/main.fa1b36a6.css",
+    "main.js": "/Hackathon/static/js/main.6bc13ece.js",
+    "static/media/rocket.svg": "/Hackathon/static/media/rocket.9a6fb5c2eb8050d07337d64e4df7c934.svg",
+    "static/media/snow.png": "/Hackathon/static/media/snow.fa44e2e21dd042c8db91.png",
+    "static/media/grads.png": "/Hackathon/static/media/grads.9c23d169d41edca8113c.png",
+    "static/media/bridge_man.png": "/Hackathon/static/media/bridge_man.a6d8598ea73d4bf37f9f.png",
+    "static/media/flight.png": "/Hackathon/static/media/flight.2690f5896e243e06f363.png",
+    "static/media/data.png": "/Hackathon/static/media/data.32d2868f55160f74d43e.png",
+    "static/media/butterfly.png": "/Hackathon/static/media/butterfly.9a9b7cd2a8112778904f.png",
+    "static/media/logo.png": "/Hackathon/static/media/logo.bdb8f639135f2422c623.png",
+    "static/media/participate.svg": "/Hackathon/static/media/participate.438eaa642ee97124ffc970055879b9ec.svg",
+    "static/media/love.svg": "/Hackathon/static/media/love.61657b14fc244009282f62fcd9ad7b42.svg",
+    "static/media/manbinary.svg": "/Hackathon/static/media/manbinary.c9d4654cbc2f6a861916c98150c3de03.svg",
+    "static/media/people.svg": "/Hackathon/static/media/people.6f92b6033494a4b6b22d023239d802f8.svg",
+    "static/media/Robot.svg": "/Hackathon/static/media/Robot.459beba5794a56415ceffc3155da8bd1.svg",
+    "static/media/id.svg": "/Hackathon/static/media/id.253f17a525de1a9bead2a72642926023.svg",
+    "static/media/aichip.svg": "/Hackathon/static/media/aichip.5689f05507f9881cd46df8fa85fb6661.svg",
+    "index.html": "/Hackathon/index.html",
+    "static/media/nb.svg": "/Hackathon/static/media/nb.85f4cfac6336f1d07eddab99d8df0b3a.svg",
+    "main.fa1b36a6.css.map": "/Hackathon/static/css/main.fa1b36a6.css.map",
+    "main.6bc13ece.js.map": "/Hackathon/static/js/main.6bc13ece.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa1b36a6.css",
+    "static/js/main.6bc13ece.js"
+  ]
+}
