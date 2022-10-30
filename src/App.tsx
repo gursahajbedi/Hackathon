@@ -9,6 +9,8 @@ import Event from "./components/event/main"
 import Create from "./components/create/main"
 import {nanoid} from  "nanoid"
 
+import data from "./components/assets/cardimage/data.png"
+
 function App() {
   const [pridata,setpridata]=React.useState(carddata)
   const [data,setdata]=React.useState(carddata)
@@ -48,7 +50,7 @@ function App() {
       "start":new Date(addformdata.FormCreateStartDate),
       "end":new Date(addformdata.FormCreateEndDate),
       "desc":addformdata.FormCreateDesc,
-      "img":aichip,
+      "img":data,
       "difficulty":addformdata.FormCreateDiff
     }
     const newdata:any=[...data,newaddformdata]
