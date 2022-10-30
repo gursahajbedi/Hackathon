@@ -7,7 +7,7 @@ export default function Event(prop:any){
                 <div className="container d-flex flex-column no-wrap py-5">
                     <div className="rounded-3 my-4 p-2 px-5 text-dark fw-bold" style={{fontSize:"0.8rem",width:"fit-content",backgroundColor:"#fece5d"}}>Starts on 17th Jun'22 9:00 PM(Indian Standard Time)</div>
                     <div className="h1 fw-bold mb-4">{prop.title}</div>
-                    <div className="mb-4 fs-5">Identify the class to which the butterfly belongs to</div>
+                    
                     {prop.difficulty==="Easy"?
                     <div className="bg-white text-dark p-2 px-4 d-flex rounded-3" style={{width:"fit-content"}}>
                         <div className="material-symbols-outlined pe-2">signal_cellular_1_bar</div>
