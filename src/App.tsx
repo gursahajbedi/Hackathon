@@ -50,7 +50,7 @@ function App() {
       "start":new Date(addformdata.FormCreateStartDate),
       "end":new Date(addformdata.FormCreateEndDate),
       "desc":addformdata.FormCreateDesc,
-      "img":data,
+      "img":{data},
       "difficulty":addformdata.FormCreateDiff
     }
     const newdata:any=[...data,newaddformdata]
