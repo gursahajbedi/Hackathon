@@ -10,9 +10,11 @@ import grad from "../assets/cardimage/grads.png"
 import participate from "../assets/participate.svg"
 
 import Card from "react-bootstrap/Card"
-import { Button, Container } from "react-bootstrap"
+import { Button, Container, FormCheck } from "react-bootstrap"
 import Countdown from "react-countdown"
 import {Link} from "react-router-dom"
+
+import {Dropdown,Form} from "react-bootstrap"
 
 
 
@@ -104,14 +106,78 @@ export function Info(){
 
 //Halted--------------------------
 export function ExploreSearch(prop:any){
-    
+    const [filterdata,setfilterdata] = React.useState({
+        "Upcoming":false,
+        "Active":false,
+        "Past":false,
+        "Easy":false,
+        "Medium":false,
+        "Hard":false
+    })
+
+
     return(
+        <div>
         <div className="container-fluid d-flex flex-column text-center p-5" style={{backgroundColor:"#002a3b"}}>
             <div className="h3 fw-bold text-light">Explore Challenges</div>
             <div className="container d-flex flex-row mt-5" id="search">
-                    <input type="search" className="form-control rounded-3 me-4" onChange={(e)=>prop.change(e.target.value)}/>
+                <input type="search" className="form-control rounded-3 me-4" onChange={(e)=>prop.change(e.target.value)}/>
+                <Dropdown>
+                    <Dropdown.Toggle className="bg-white text-dark">
+                        Filter
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Form>
+                        <Form.Group className="p-1 fs-5">
+                            <div className="border-bottom text-secondary">Status</div>
+                            <Form.Check type="checkbox" label="Upcoming" onChange={()=>{
+                                setfilterdata({...filterdata,"Upcoming":!filterdata.Upcoming})
+                                prop.filter(filterdata.Upcoming,"Upcoming")
+                            }}/>
+                            <Form.Check type="checkbox" label="Active" onChange={()=>{
+                                setfilterdata({...filterdata,"Active":!filterdata.Active})
+                                prop.filter(filterdata.Active,"Active")
+                            }}/>
+                            <Form.Check type="checkbox" label="Past" onChange={()=>{
+                                setfilterdata({...filterdata,"Past":!filterdata.Past})
+                                prop.filter(filterdata.Past,"Past")
+                            }}/>
+                            <div className="border-bottom text-secondary">Level</div>
+                            <Form.Check type="checkbox" label="Easy" onClick={()=>{
+                                setfilterdata({...filterdata,"Easy":!filterdata.Easy})
+                                prop.filter(filterdata.Easy,"Easy")
+                            
+                                
+                            }} />
+                            <Form.Check type="checkbox" label="Medium" onChange={()=>{
+                                setfilterdata({...filterdata,"Medium":!filterdata.Medium})
+                                prop.filter(filterdata.Medium,"Medium")
+                                
+                            }}/>
+                            <Form.Check type="checkbox" label="Hard" onChange={()=>{
+                                setfilterdata({...filterdata,"Hard":!filterdata.Hard})
+                                prop.filter(filterdata.Hard,"Hard")
+                                
+                            }}/>
+                        </Form.Group> 
+                        </Form>
+                    </Dropdown.Menu>
+                </Dropdown>    
+            </div>
+            <div className="container row mt-5">
+                
+                {filterdata.Upcoming && <div className="text-light bg-secondary col-sm-2 p-2 rounded-pill fs-6">Upcoming</div>}
+                {filterdata.Past && <div className="text-light bg-secondary col-sm-2 p-2 rounded-pill fs-6">Past</div>}
+                {filterdata.Active && <div className="text-light bg-secondary col-sm-2 p-2 rounded-pill fs-6">Active</div>}
+                {filterdata.Easy && <div className="text-light bg-secondary col-sm-2 p-2 rounded-pill fs-6">Easy</div>}
+                {filterdata.Medium && <div className="text-light bg-secondary col-sm-2 p-2 rounded-pill fs-6">Medium</div>}
+                {filterdata.Hard && <div className="text-light bg-secondary col-sm-2 p-2 rounded-pill fs-6">Hard</div>}
             </div>
         </div>
+        </div>
+
+
+        
         
     )
 }
@@ -139,44 +205,48 @@ export function Cards(prop:any){
                     <Card.Text className="container rounded-4" style={{fontSize:"1rem",width:"fit-content"}}>{textContent==="Active"?<span>Ends In</span>:textContent==="Upcoming"?<span>Starts In</span>:<span>Ended On</span>}</Card.Text>
                     <Card.Text className="container text-center pb-3">
                         {textContent==="Active"?
-                        <Countdown date={prop.end} renderer={({days,hours,minutes})=>{
+                        <Countdown date={prop.end} renderer={({days,hours,minutes,seconds})=>{
                             return(
                                 <div className="">
                                 <div className="row h3 fw-bold d-flex justify-content-center">
                                     <div className="col-sm-3">{days}</div>:
-                                    <div className="col-sm-3">{hours}</div>:
-                                    <div className="col-sm-3">{minutes}</div>
+                                    <div className="col-sm-2">{hours}</div>:
+                                    <div className="col-sm-2">{minutes}</div>:
+                                    <div className="col-sm-3">{seconds}</div>
                                 </div>
                                 <div className="row d-flex fw-bold justify-content-center">
                                     <div className="col-sm-3">Days</div>
-                                    <div className="col-sm-3">Hours</div>
-                                    <div className="col-3">Mins</div>
+                                    <div className="col-sm-2">Hrs</div>
+                                    <div className="col-sm-2">Min</div>
+                                    <div className="col-sm-3">Secs</div>
                                 </div>
                                 </div>
                             )
                         }}></Countdown>
                         :
                         textContent==="Upcoming"?
-                        <Countdown date={prop.start} renderer={({days,hours,minutes})=>{
+                        <Countdown date={prop.start} renderer={({days,hours,minutes,seconds})=>{
                             return(
                                 <div className="">
                                 <div className="row h3 fw-bold d-flex justify-content-center">
                                     <div className="col-sm-3">{days}</div>:
-                                    <div className="col-sm-3">{hours}</div>:
-                                    <div className="col-sm-3">{minutes}</div>
+                                    <div className="col-sm-2">{hours}</div>:
+                                    <div className="col-sm-2">{minutes}</div>:
+                                    <div className="col-sm-3">{seconds}</div>
                                 </div>
                                 <div className="row d-flex fw-bold justify-content-center">
                                     <div className="col-sm-3">Days</div>
-                                    <div className="col-sm-3">Hours</div>
-                                    <div className="col-3">Mins</div>
+                                    <div className="col-sm-2">Hrs</div>
+                                    <div className="col-sm-2">Min</div>
+                                    <div className="col-sm-3">Secs</div>
                                 </div>
                                 </div>
                             )
                         }}></Countdown>
                         :
-                        <Container className="my-3 h5 fw-bold">
-                            {prop.end.toUTCString()}
-                        </Container>
+                        <div className="my-3 h5 fw-bold">
+                            {prop.end.toString()}
+                        </div>
                         }
                     </Card.Text>
                     <Card.Text className="container text-center">

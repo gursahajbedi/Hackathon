@@ -8,14 +8,47 @@ import {Routes,Route,HashRouter} from "react-router-dom"
 import Event from "./components/event/main"
 import Create from "./components/create/main"
 import {nanoid} from  "nanoid"
+import Edit from "./components/edit/main"
 
 import dataimg from "./components/assets/cardimage/data.png"
 
-function App() {
+export function App() {
   const [pridata,setpridata]=React.useState(carddata)
-  const [data,setdata]=React.useState(carddata)
+  
+  const [data,setdata]=React.useState(pridata)
+
+  function filter(val:any,mode:any){
+    let array:any
+    const main=pridata.filter((item)=>{
+      const timenow=new Date()
+      let textContent=null
+      if (item.start<timenow && item.end>timenow){
+        textContent="Active"
+      }
+      if(item.start>timenow && item.end>timenow){
+        textContent="Upcoming"
+        }
+      if(item.start<timenow && item.end<timenow){
+        textContent="Past"
+      }
 
 
+      if(mode===item.difficulty){
+        return item
+      }
+      if(mode===textContent){
+        return item 
+      }
+
+    })
+    if (val===false){
+      setdata(main)
+    }
+    else{
+      setdata(pridata)
+    }
+  }
+  
 
 
   const [addformdata,setformdata]=React.useState({
@@ -28,8 +61,6 @@ function App() {
   })
 
 
-
-
   function createchange(event:any){
     event.preventDefault()
     const feildName=event.target.getAttribute("name")
@@ -40,6 +71,20 @@ function App() {
 
     setformdata(newFormData)
     
+  }
+  
+  function editsubmit(formdata:any){
+    formdata.start=new Date(formdata.start)
+    formdata.end=new Date(formdata.end)
+    const searchcard=pridata.filter((att)=>{
+      if(att.id!=formdata.id){
+        return att
+      }
+    })
+    const newdata=[...searchcard,formdata]
+    console.log(newdata)
+    setpridata(newdata)
+    setdata(newdata)
   }
 
 
@@ -68,10 +113,9 @@ function App() {
     const newdata=searchcard
     setpridata(newdata)
     setdata(newdata)
-    console.log(data)
   }
   function search(searchContext:any){
-    const searchcard=pridata.filter((att)=>{
+    const searchcard=pridata.filter((att:any)=>{
       if (att.title.toLowerCase().includes(searchContext.toLowerCase())){
         return att
       }
@@ -84,14 +128,12 @@ function App() {
   }
   
   const cards = data.map(item=>{
-    let vari:any=(item.title).split(" ");
+    let vari:any=item.title.split(" ");
     vari='/'+ vari.join("")
-
     return(
-      <Cards img={item.img} title={item.title} link={vari} start={item.start} end={item.end}/>
+      <Cards img={item.img} title={item.title} link={vari} start={item.start} end={item.end} />
     )
   })
-
   const page = data.map((item)=>{
     let vari:any=(item.title).split(" ");
     vari=vari.join("")
@@ -99,7 +141,7 @@ function App() {
     return(
       <Route path={vari} element={
         <div className='d-flex flex-column'>
-          <Event id={item.id} title={item.title} difficulty={item.difficulty} desc={item.desc} Delete={del}/>
+          <Event id={item.id} title={item.title} difficulty={item.difficulty} desc={item.desc} Delete={del} start={item.start} end={item.end} img={item.img} editsubmit={editsubmit}/>
         </div>
       }/>
     )
@@ -132,7 +174,7 @@ function App() {
                </div>
            </div>
            <Info/>
-           <ExploreSearch change={search}/>
+           <ExploreSearch change={search} filter={filter}/>
            <div className='container-fluid pb-5' style={{backgroundColor:"#013045"}}>
               <div className='row gap-5 mt-5 d-flex justify-content-center'>
                   {cards}
@@ -142,9 +184,10 @@ function App() {
       }/>
       {page}
       <Route path='/create' element={<Create change={createchange} submit={createsubmit}/>}/>
+      <Route path="/edit" element={<Edit/>} />
     </Routes>
     </HashRouter>
   );
 }
 
-export default App;
+
