@@ -17,40 +17,6 @@ export function App() {
   
   const [data,setdata]=React.useState(pridata)
 
-  function filter(val:any,mode:any){
-    let array:any
-    const main=pridata.filter((item)=>{
-      const timenow=new Date()
-      let textContent=null
-      if (item.start<timenow && item.end>timenow){
-        textContent="Active"
-      }
-      if(item.start>timenow && item.end>timenow){
-        textContent="Upcoming"
-        }
-      if(item.start<timenow && item.end<timenow){
-        textContent="Past"
-      }
-
-
-      if(mode===item.difficulty){
-        return item
-      }
-      if(mode===textContent){
-        return item 
-      }
-
-    })
-    if (val===false){
-      setdata(main)
-    }
-    else{
-      setdata(pridata)
-    }
-  }
-  
-
-
   const [addformdata,setformdata]=React.useState({
     "FormCreateName":'',
     "FormCreateStartDate":'',
@@ -174,7 +140,7 @@ export function App() {
                </div>
            </div>
            <Info/>
-           <ExploreSearch change={search} filter={filter}/>
+           <ExploreSearch change={search}/>
            <div className='container-fluid pb-5' style={{backgroundColor:"#013045"}}>
               <div className='row gap-5 mt-5 d-flex justify-content-center'>
                   {cards}
