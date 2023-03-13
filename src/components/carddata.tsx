@@ -5,8 +5,8 @@ export default [
         "title": "Travel Insurance Claim Prediction",
         "difficulty": "Easy",
         "desc": `Travel insurance is an insurance product for covering unforeseen losses incurred while travelling, either internationally or domestically. Basic policies generally only cover emergency medical expenses while overseas, while comprehensive policies typically include coverage for trip cancellation, lost luggage, flight delays, public liability, and other expenses.`,
-        "start":new Date("October 31 2022 9:00:00"),
-        "end":new Date("November 15, 2022 10:00:00"),
+        "start":new Date("January 30 2023 9:00:00"),
+        "end":new Date("Feburary 10, 2022 10:00:00"),
     },
     {
         "id":2,
@@ -16,8 +16,8 @@ export default [
         "desc": `Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word "Lepidoptera" means "scaly wings" in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.
         An agency of the Governmental Wildlife Conservation is planning to implement an automated system based on computer vision so that it can identify butterflies based on captured images.As a consultant for this project, you are responsible for developing an efficient model.
         Your Task is to build an Image Classification Model using CNN that classifies to which class of weather each image belongs to.`,
-        "start":new Date("November 7 2022 12:00:00"),
-        "end":new Date("November 18, 2022 12:00:00")
+        "start":new Date("Feburary 27 2023 12:00:00"),
+        "end":new Date("March 14, 2023 12:00:00")
     },
     {
         "id":3,
@@ -46,8 +46,8 @@ export default [
         Therefore, several investigations on service quality have been carried out on the notion that customer perception and evaluation of service quality. 
         
         You have been hired by one of the leading aviation firm to build a Machine Learning model that helps them to identify the satisfaction levels of the customers`,
-        "start":new Date("December 5 2022 12:00:00"),
-        "end":new Date("December 7, 2022 8:00:00"),
+        "start":new Date("March 12 2022 12:00:00"),
+        "end":new Date("March 21, 2022 8:00:00"),
     },
     {
         "id":5,
@@ -55,8 +55,8 @@ export default [
         "title": "Engineering Graduates Employment Outcomes",
         "difficulty": "Medium",
         "desc": `A relevant question is what determines the salary and the jobs these engineers are offered right after graduation. Various factors such as college grades, candidate skills, the proximity of the college to industrial hubs, the specialization one have, market conditions for specific industries determine this. On the basis of these various factors, your objective is to determine the salary of an engineering graduate in India.`,
-        "start":new Date("November 7, 2022 12:00:00"),
-        "end":new Date("November 20, 2022 5:00:00"),
+        "start":new Date("March 11, 2022 12:00:00"),
+        "end":new Date("March 16, 2022 5:00:00"),
     },
     {
         "id":6,
